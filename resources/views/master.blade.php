@@ -49,6 +49,7 @@
 </head>
 
 <body class="demo-5">
+<div class="exapmle"></div>
     <!--WRAPPER START-->
     <div class="wrapper">
         <!--CITY TOP NAVIGATION START-->
