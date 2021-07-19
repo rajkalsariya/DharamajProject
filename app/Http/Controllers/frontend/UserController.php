@@ -14,7 +14,7 @@ class UserController extends Controller
     public function userLogout(){
         $userID = Auth::user()->id;
         Auth::logout($userID);
-        return Redirect()->route('user.login_register');
+        return Redirect()->route('login');
     }
 
     // User Profile Show 
@@ -49,7 +49,7 @@ class UserController extends Controller
             $user->password = Hash::make($request->password);
             $user->save();
             Auth::logout();
-            return redirect()->route('user.login_register');
+            return redirect()->route('login');
         }else{
             return redirect()->back();
         }

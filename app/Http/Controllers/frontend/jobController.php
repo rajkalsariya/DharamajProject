@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\frontend\Jobfind;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -59,7 +60,10 @@ class jobController extends Controller
     // User Fetch Job Find List
     public function fetchJobFind()
     {
-        $jobfindlist = Jobfind::latest()->get();
+
+        $id = Auth::user()->id;
+        $user = User::findOrFail($id);
+        $jobfindlist = Jobfind::where('uid', Auth::id())->latest()->get();
         return response()->json($jobfindlist);
     }
 

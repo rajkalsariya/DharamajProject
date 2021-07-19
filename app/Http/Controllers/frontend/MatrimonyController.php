@@ -8,6 +8,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Image;
 
 class MatrimonyController extends Controller
 {
@@ -51,6 +52,7 @@ class MatrimonyController extends Controller
 
             $name_gen = hexdec(uniqid());
             $image_ext = strtolower($photourl->getClientOriginalExtension());
+            $photourl->blur(15);
             $img_name = $name_gen . '.' . $image_ext;
             $up_location = 'upload/matrimony/';
             $img1 = $up_location . $img_name;

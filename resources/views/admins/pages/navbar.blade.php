@@ -20,6 +20,11 @@
                         </li>
                     </ul>
                 </li>
+                <li class="">
+                    <a class="nav-link" href="{{ route('admin.gallery') }}">
+                        Gallery
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

@@ -52,14 +52,25 @@ Dharamj
             <div class="col-lg-4">
                 <div class="sidebar__single sidebar__category">
                     <h3 class="sidebar__title">Categories</h3>
-                    <ul class="sidebar__category-list list-unstyled">
+                    <ul class="menu sidebar__category-list list-unstyled">
                         @foreach($categories as $category)
                         @if($category->pid == NULL)
-                        <li><a href="{{ url('categories/'.$category->id) }}">{{ $category->cname }}</a></li>
-                        @elseif($category->pid != NULL)
-                        <ul class="sidebar__category-list list-unstyled pl-4">
-                            <li><a href="{{ url('categories/'.$category->id.'/subcategories/'.$category->pid) }}">{{ $category->cname }}</a></li>
-                        </ul>
+                        <li class="item1">
+                            <a href="{{ url('categories/'.$category->id) }}"><span class="ttl"> {{ $category->cname }} </span><span class="ttl_arrow">
+                                    < </span></a>
+                            @php
+                            $subcategories =
+                            DB::table('categories')->where('pid',
+                            $category->id)->get();
+                            @endphp
+                            <ul class="sidebar__category-list list-unstyled">
+                                @foreach($subcategories as $cate)
+                                <li class="subitem1">
+                                    <a href="{{ url('categories/'.$cate->pid.'/subcategories/'.$cate->id) }}"> {{ $cate->cname }} </a>
+                                </li>
+                                @endforeach
+                            </ul>
+                        </li>
                         @endif
                         @endforeach
                     </ul>
@@ -97,9 +108,9 @@ Dharamj
                     </div>
                     <div class="row">
                         <div class="col-xl-12">
-                            <div class="listings_two_page_content">  
+                            <div class="listings_two_page_content">
                                 @forelse($catwises as $catwise)
-                               
+
                                 <!--listings Two Page Single-->
                                 <div class="listings_two_page_single">
                                     <div class="listings_two_page_img">
@@ -136,10 +147,7 @@ Dharamj
                     </div>
                 </div>
                 <div class="contact-one-left__social" style="justify-content: flex-end;">
-                    <a href="#"><i class="fas fa-long-arrow-alt-left"></i></a>
-                    <a href="#">1</a>
-                    <a href="#">2</a>
-                    <a href="#"><i class="fas fa-long-arrow-alt-right"></i></a>
+                    {{ $catwises->links('layouts.frontend.pagination.pagination') }}
                 </div>
             </div>
         </div>

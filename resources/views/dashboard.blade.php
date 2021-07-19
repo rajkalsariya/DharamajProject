@@ -58,7 +58,7 @@ $user = DB::table('users')->where('id', Auth::id())->first();
         <header class="header">
             <div class="logo-container">
                 <a href="../2.2.0" class="logo">
-                    <img src="img/logo.png" width="75" height="35" alt="Porto Admin" />
+                    <img src="{{asset('frontend/images/dharmaj_logo.png')}}" width="75" height="35" alt="Porto Admin" />
                 </a>
                 <div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
                     <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
@@ -67,6 +67,14 @@ $user = DB::table('users')->where('id', Auth::id())->first();
 
             <!-- start: search & user box -->
             <div class="header-right">
+                <ul class="notifications">
+                    <li>
+                        <a href="{{ url('/') }}" class="btn btn-success">
+                            <i class="fas fa-home"></i>
+                            <span class="badge">Home</span>
+                        </a>
+                    </li>
+                </ul>
                 <span class="separator"></span>
 
                 <div id="userbox" class="userbox">

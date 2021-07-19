@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use App\Models\frontend\Categories;
 use App\Models\frontend\Services;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -87,6 +88,8 @@ class ServicesController extends Controller
     // User Fetch Service Data
     public function fetchServices()
     {
+        $id = Auth::user()->id;
+        $user = User::findOrFail($id);
         $services = DB::table('services')
             ->join('categories', 'categories.id', '=', 'services.cid')
             ->select('services.*', 'categories.cname')
@@ -183,7 +186,10 @@ class ServicesController extends Controller
     // Service Details On Frondend 
     public function serviceDetails($id)
     {
-        $services = Services::where('id', $id)->first();
+        $services = DB::table('services')
+            ->join('categories', 'services.cid', '=', 'categories.id')
+            ->select('services.*', 'categories.cname')
+            ->where('services.id', $id)->first();
         return view('layouts.frontend.servicesdetails.servicedetails', compact('services'));
     }
 }

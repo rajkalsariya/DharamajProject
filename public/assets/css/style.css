@@ -39,12 +39,103 @@
 /*font-family: 'Barlow', sans-serif;
 font-family: 'Sacramento', cursive;*/
 
+
+
+.menu > li > a {
+	height: 40px;
+	line-height: 40px; 
+	
+	text-indent: 12px;
+	display: block;
+	position: relative;
+	color: #6a6a6b;
+}
+.menu ul li a {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-indent: 30px;
+	display: block;
+	position: relative;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	color: #818791;
+}
+.menu li a .ttl {
+	margin: 1px 0 0 -5px;
+	position: absolute;
+}
+.menu ul li:last-child a {
+}
+.menu > li > a:hover, .menu > li > a.active {
+	color: #e74c3c;
+}
+.menu > li > a .ttl_arrow {
+	font-family: Tahoma;
+	font-size: 14px; 
+	font-weight: bold;
+	display: inline-block;
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	line-height: 20px;
+	margin: -10px 0 0 0;
+	color: #e75040;
+	text-indent: 0;
+	text-align: center;
+	transition: all 0s ease;
+}
+.menu > li > a:hover .ttl_arrow, .menu > li a.active .ttl_arrow {
+	transform: rotate(-90deg);
+}
+.menu > li > ul li a:before {
+	content: '●';
+	font-size: 16px;
+	color: #7f8c8d;
+	position: absolute;
+	width: 1em;
+	height: 1em;
+	top: 0;
+	left: -15px;
+}
+
+.menu > li > ul li:hover a, .menu > li > ul li:hover a span, .menu > li > ul li:hover a:before {
+	color: #32373D;
+}
+.menu ul > li > a span {
+	font-size: 0.857em;
+	display: inline-block;
+	position: absolute;
+	right: 1em;
+	top: 50%; 
+	background: #fff;
+	border: 1px solid #d0d0d3;
+	line-height: 1em;
+	height: 1em;
+	padding: 3px 4px;
+	margin: -8px -5px 0 0;
+	color: #878d95;
+	text-indent: 0;
+	text-align: center;
+	-webkit-border-radius: .769em;
+	-moz-border-radius: 769em;
+	border-radius: 769em;
+	text-shadow: 0px 0px 0px rgba(255,255,255,.01);
+}
+
+
+.pageActive{
+  background: var(--thm-primary) !important;
+  color: #ffffff !important; 
+}
+
 .right_border{
   border-right: 1px solid var(--thm-primary);
 }
 
 :root {
-  --thm-font: "Barlow", sans-serif;
+  --thm-font: "montserrat", sans-serif;
   --thm-base: #ffffff;
   --thm-base-rgb: 255, 255, 255;
   --thm-primary: #fc3c3c;
@@ -122,10 +213,10 @@ li {
   letter-spacing: 0.2em;
 }
 .block-title h2 {
-  font-size: 50px;
-  font-weight: 800;
+  font-size: 42px;
+  font-weight: 700;
   text-transform: capitalize;
-  line-height: 66px;
+  line-height: 45px;
 }
 .block-title p {
   margin: 0;
@@ -614,7 +705,7 @@ li {
 .logo_one {
   position: relative;
   display: block;
-  padding: 31px 0;
+  padding: 11px 0;
 }
 .logo_one a {
   display: inline-block;
@@ -652,7 +743,7 @@ li {
 }
 .main-nav__main-navigation .main-nav__navigation-box > li {
   position: relative;
-  padding: 31px 0px 31px;
+  padding: 15px 0px;
 }
 .main-nav__main-navigation .main-nav__navigation-box > li > a {
   position: relative;
@@ -669,7 +760,7 @@ li {
 }
 .main-nav__main-navigation .main-nav__navigation-box > li > a:before {
   position: absolute;
-  top: -35px;
+  top: -18px;
   left: 0;
   right: 0;
   height: 2px;
@@ -926,14 +1017,14 @@ li {
 }
 
 .stricked-menu.stricky-fixed .logo_one {
-  padding: 23px 0;
+  padding: 15px 0;
 }
 .stricked-menu.stricky-fixed
   .main-nav__main-navigation
   .main-nav__navigation-box
   > li {
   position: relative;
-  padding: 23px 0px 23px;
+  padding: 15px 0px 15px;
 }
 .stricked-menu.stricky-fixed .header_btn_1 {
   padding: 12px 0 13px;
@@ -1109,7 +1200,7 @@ li {
   display: block;
   float: right;
   margin-right: 30px;
-  padding: 35.5px 0;
+  padding: 18.5px 0;
 }
 .main-nav__right-two .icon-search-box a {
   color: #161c26;
@@ -1125,7 +1216,7 @@ li {
   display: block;
   float: right;
   margin-right: 30px;
-  padding: 29.5px 0;
+  padding: 15px 0;
 }
 .main-nav__right-two .icon_cart_box a {
   color: #161c26;
@@ -1140,7 +1231,7 @@ li {
   display: block;
   float: right;
   margin-right: 30px;
-  padding: 29.5px 0;
+  padding: 15px 0;
 }
 .main-nav__right-two .icon_heart_box a {
   color: #161c26;
@@ -1163,7 +1254,7 @@ li {
   padding: 21px 0 22px;
 }
 .stricked-menu.stricky-fixed .main-nav__right-two .icon-search-box {
-  padding: 27px 0 28px;
+  padding: 19px 0 20px;
 }
 .stricked-menu.stricky-fixed .main-nav__right-two .icon_heart_box {
   padding: 24px 0 19px;
@@ -1659,8 +1750,8 @@ li {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: left center;
-  padding-top: 364px;
+  background-position: center center;
+  padding-top: 282px;
   padding-bottom: 84px;
   z-index: 1;
   overflow: hidden;
@@ -4537,7 +4628,7 @@ li {
   right: 0;
   bottom: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   transform: scale(1);
   -webkit-transition: all 500ms ease;
@@ -4547,10 +4638,10 @@ li {
   transform: scale(0);
 }
 .four_boxes-two_content h3 {
-  font-size: 34px;
+  font-size: 1.75rem;
   color: var(--thm-base);
   line-height: 44px;
-  font-weight: 800;
+  font-weight: 500;
 }
 .four_boxes_two_hover_content {
   position: absolute;
@@ -6134,7 +6225,7 @@ li {
 .about_one {
   position: relative;
   display: block;
-  padding: 120px 0 120px;
+  padding: 0px 0 120px;
 }
 .about_one_bg {
   position: absolute;

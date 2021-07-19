@@ -9,10 +9,16 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    //Front End Login-Register Page
-    public function loginRegister()
+    //Front End Login Page
+    public function loginUser()
     {
-        return view('layouts.login.login_register');
+        return view('layouts.login.login');
+    }
+
+    //Front End Register Page
+    public function registerUser()
+    {
+        return view('layouts.login.register');
     }
 
     // Categories Wise Items Show
@@ -22,7 +28,7 @@ class HomeController extends Controller
             ->join('categories', 'categories.id', 'services.cid')
             ->where('categories.pid', '=', $id)
             ->select('services.*')
-            ->orderBy('id', 'DESC')->paginate(1);
+            ->orderBy('id', 'DESC')->paginate(3);
         $categories = DB::table('categories')->get();
         return view('layouts.frontend.categorywise.categorieswise', compact('catwises', 'categories'));
     }
@@ -32,10 +38,10 @@ class HomeController extends Controller
      {
          $subcatwises = DB::table('services')
              ->join('categories', 'categories.id', 'services.cid')
-             ->where('categories.id', '=', $id)
-             ->where('categories.pid', '=', $pid)
+             ->where('categories.pid', '=', $id)
+             ->where('categories.id', '=', $pid)
              ->select('services.*')
-             ->orderBy('id', 'DESC')->paginate(5);
+             ->orderBy('id', 'DESC')->paginate(1);
          $categories = DB::table('categories')->get();
          return view('layouts.frontend.categorywise.subcategorieswise', compact('subcatwises', 'categories'));
      }

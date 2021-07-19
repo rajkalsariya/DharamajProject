@@ -47,81 +47,102 @@ Dharamj
 </section>
 
 <section class="listings_one_wrap pt-5 pb-5">
-    <div class="container-full-width clearfix">
-        <div class="listings__one__map">
-            <div class="sidebar__single sidebar__category">
-                <h3 class="sidebar__title">Categories</h3>
-                <ul class="sidebar__category-list list-unstyled">
-                    @foreach($categories as $category)
-                    @if($category->pid == NULL)
-                    <li><a href="{{ url('categories/'.$category->id) }}">{{ $category->cname }}</a></li>
-                        @elseif($category->pid != NULL)
-                            <ul class="sidebar__category-list list-unstyled pl-4">
-                                <li><a href="{{ url('categories/'.$category->id.'/subcategories/'.$category->pid) }}">{{ $category->cname }}</a></li>
-                            </ul>
-                    @endif
-                    @endforeach
-                </ul>
+    <div class="container clearfix">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="">
+                    <div class="sidebar__single sidebar__category">
+                        <h3 class="sidebar__title">Categories</h3>
+                        <ul class="menu sidebar__category-list list-unstyled">
+                            @foreach($categories as $category)
+                            @if($category->pid == NULL)
+                            <li class="item1">
+                                <a href="{{ url('categories/'.$category->id) }}"><span class="ttl"> {{ $category->cname }} </span><span class="ttl_arrow">
+                                        < </span></a>
+                                @php
+                                $subcategories =
+                                DB::table('categories')->where('pid',
+                                $category->id)->get();
+                                @endphp
+                                <ul class="sidebar__category-list list-unstyled">
+                                    @foreach($subcategories as $cate)
+                                    <li class="subitem1">
+                                        <a href="{{ url('categories/'.$cate->pid.'/subcategories/'.$cate->id) }}"> {{ $cate->cname }} </a>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                            @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="listings__one__content">
-            <div class="listings_one_content_left">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="filter">
-                            <div class="filter_inner_content">
-                                <div class="left">
-                                    <div class="left_icon">
-                                        <a href="listings1.html" class="icon-grid"></a>
-                                        <a href="listings2.html" class="list-icon icon-list active"></a>
-                                    </div>
-                                    <div class="left_text">
-                                        <h4>Over 70 Restaurants Found</h4>
-                                    </div>
-                                </div>
-                                <div class="right">
-                                    <div class="shorting">
-                                        <select class="selectpicker" data-width="100%">
-                                            <option selected="selected">Default Sorting</option>
-                                            <!-- <option>Default Sorting 1</option>
+            <div class="col-lg-8">
+
+                <div class="">
+                    <div class="listings_one_content_left">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="filter">
+                                    <div class="filter_inner_content">
+                                        <div class="left">
+                                            <div class="left_icon">
+                                                <a href="listings1.html" class="icon-grid"></a>
+                                                <a href="listings2.html" class="list-icon icon-list active"></a>
+                                            </div>
+                                            <div class="left_text">
+                                                <h4>Over 70 Restaurants Found</h4>
+                                            </div>
+                                        </div>
+                                        <div class="right">
+                                            <div class="shorting">
+                                                <select class="selectpicker" data-width="100%">
+                                                    <option selected="selected">Default Sorting</option>
+                                                    <!-- <option>Default Sorting 1</option>
                                             <option>Default Sorting 2</option>
                                             <option>Default Sorting 3</option>
                                             <option>Default Sorting 4</option> -->
-                                        </select>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="listings_two_page_content">
+                                    @foreach($subcatwises as $catwise)
+                                    <!--listings Two Page Single-->
+                                    <div class="listings_two_page_single">
+                                        <div class="listings_two_page_img">
+                                            <img src="{{ asset($catwise->photourl) }}" alt="">
+                                        </div>
+                                        <div class="listings_two-page_content">
+                                            <div class="title">
+                                                <h3><a href="{{ url('service/details/'. $catwise->id) }}">{{ $catwise->title }}<span class="fa fa-check"></span></a></h3>
+                                                <p>{!! Str::limit(strip_tags($catwise->description), 30) !!}</p>
+                                            </div>
+                                            <ul class="list-unstyled listings_two-page_contact_info">
+                                                <li><i class="fas fa-map-marker-alt"></i>{{ $catwise->adder1 }}, {{ $catwise->adder2 }}, {{ $catwise->city }}</li>
+                                                <li><a href="tel:+{{ $catwise->contact1 }}"><i class="fa fa-phone"></i>Call Now</a></li>
+                                            </ul>
+                                            <div class="author_img">
+                                                <img src="{{ asset($catwise->logo) }}" width="37" alt="">
+                                            </div>
+                                            <div class="shopping_circle">
+                                                <span class="icon-shopping-bags"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="listings_two_page_content">
-                            @foreach($subcatwises as $catwise)
-                            <!--listings Two Page Single-->
-                            <div class="listings_two_page_single">
-                                <div class="listings_two_page_img">
-                                    <img src="{{ asset($catwise->photourl) }}" alt="">
-                                </div>
-                                <div class="listings_two-page_content">
-                                    <div class="title">
-                                        <h3><a href="{{ url('service/details/'. $catwise->id) }}">{{ $catwise->title }}<span class="fa fa-check"></span></a></h3>
-                                        <p>{!! Str::limit(strip_tags($catwise->description), 30) !!}</p>
-                                    </div>
-                                    <ul class="list-unstyled listings_two-page_contact_info">
-                                        <li><i class="fas fa-map-marker-alt"></i>{{ $catwise->adder1 }}, {{ $catwise->adder2 }}, {{ $catwise->city }}</li>
-                                        <li><a href="tel:+{{ $catwise->contact1 }}"><i class="fa fa-phone"></i>Call Now</a></li>
-                                    </ul>
-                                    <div class="author_img">
-                                        <img src="{{ asset($catwise->logo) }}" width="37" alt="">
-                                    </div>
-                                    <div class="shopping_circle">
-                                        <span class="icon-shopping-bags"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
+                    <div class="contact-one-left__social" style="justify-content: flex-end;">
+                        {{ $subcatwises->links('layouts.frontend.pagination.pagination') }}
                     </div>
                 </div>
             </div>

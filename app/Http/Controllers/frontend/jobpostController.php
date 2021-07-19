@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\frontend\Jobpost;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,9 @@ class jobpostController extends Controller
     // User Fetch Job Post List
     public function fetchJobPost()
     {
-        $jobpostlist = Jobpost::latest()->get();
+        $id = Auth::user()->id;
+        $user = User::findOrFail($id);
+        $jobpostlist = Jobpost::where('uid', Auth::id())->latest()->get();
         return response()->json($jobpostlist);
     }
 
@@ -155,7 +158,8 @@ class jobpostController extends Controller
     }
 
     // Front End Jobpost Details
-    public function jobpostDetails($id){
+    public function jobpostDetails($id)
+    {
         $jobpost = Jobpost::where('id', $id)->first();
         return view('layouts.frontend.jobpostsdetails.jobpostdetails', compact('jobpost'));
     }

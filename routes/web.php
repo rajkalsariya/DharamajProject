@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\frontend\AdvertisementController;
 use App\Http\Controllers\frontend\CategoriesController;
+use App\Http\Controllers\frontend\GalleryController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\jobController;
 use App\Http\Controllers\frontend\jobpostController;
@@ -29,7 +30,50 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/login_register', [HomeController::class, 'loginRegister'])->name('user.login_register');
+Route::get('/history', function () {
+    return view('layouts.frontend.history.history');
+});
+
+Route::get('/history/details', function () {
+    return view('layouts.frontend.history.historydetails');
+});
+
+Route::get('/job', function () {
+    return view('layouts.frontend.job.job');
+});
+
+Route::get('/about', function () {
+    return view('layouts.frontend.about.about');
+});
+
+Route::get('/team', function () {
+    return view('layouts.frontend.team.team');
+});
+
+Route::get('/service/classified', function(){
+    return view('layouts.frontend.service.classified');
+});
+
+Route::get('/service/government', function(){
+    return view('layouts.frontend.service.government');
+});
+
+Route::get('service/government/details', function(){
+    return view('layouts.frontend.service.governmentdetails');
+});
+
+Route::get('service/matrimony', function(){
+    return view('layouts.frontend.matrimony.matrimony');
+});
+
+Route::get('/gallery', function(){
+    return view('layouts.frontend.gallery.gallery');
+});
+
+Route::get('/gallery/details', function(){
+    return view('layouts.frontend.gallery.gallerydetails');
+});
+
 
 Route::group(['prefix' => 'admin', 'middleware' => ['admin:admin']], function () {
     Route::get('/login', [AdminController::class, 'loginForm']);
@@ -66,6 +110,12 @@ Route::get('/admin/deleteCategories/{id}', [CategoriesController::class, 'delete
 Route::get('/admin/checkCname/{cname}', [CategoriesController::class, 'checkCname']);
 
 
+// Admin Gallery
+Route::get('/admin/gallery', [GalleryController::class, 'gallery'])->name('admin.gallery');
+
+Route::post('/admin/addGallery', [GalleryController::class, 'addGallery']);
+
+
 Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
     return view('layouts.index');
 })->name('dashboard');
@@ -94,6 +144,8 @@ Route::get('/editAdvertisement/{id}', [AdvertisementController::class, 'editAdve
 Route::post('/updateAdvertisement/{id}', [AdvertisementController::class, 'updateAdvertisement']);
 
 Route::get('/deleteAdvertisement/{id}', [AdvertisementController::class, 'deleteAdvertisement']);
+
+Route::get('/advertisements/details/{id}', [AdvertisementController::class, 'advertisementDetails']);
 
 
 // User Job Find
@@ -145,7 +197,7 @@ Route::get('/editServices/{id}', [ServicesController::class, 'editServices']);
 
 Route::post('/updateServices/{id}', [ServicesController::class, 'updateServices']);
 
-Route::get('/service/details/{id}', [ServicesController::class, 'serviceDetails']);
+Route::get('service/classified/details/{id}', [ServicesController::class, 'serviceDetails']);
 
 
 // User Matrimony

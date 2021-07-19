@@ -48,7 +48,7 @@ class AdvertisementController extends Controller
             "startdate" => 'required',
             "enddate" => 'required',
             "redirecturl" => 'required',
-        ],[
+        ], [
             'title.required' => 'This advertisement title field is required.',
             'description.required' => 'This description field is required.',
             'startdate.required' => 'This select start date field is required.',
@@ -117,7 +117,7 @@ class AdvertisementController extends Controller
             "startdate" => 'required',
             "enddate" => 'required',
             "redirecturl" => 'required',
-        ],[
+        ], [
             'title.required' => 'This advertisement title field is required.',
             'description.required' => 'This description field is required.',
             'startdate.required' => 'This select date field is required.',
@@ -179,5 +179,12 @@ class AdvertisementController extends Controller
         @unlink($image);
         $deleteadvertisement = Advertisement::where('id', $id)->delete();
         return response()->json($deleteadvertisement);
+    }
+
+    // User Frontend advertisement Details
+    public function advertisementDetails($id)
+    {
+        $advertisement = Advertisement::where('id', $id)->first();
+        return view('layouts.frontend.advertisements.advertisementsdetails', compact('advertisement'));
     }
 }
