@@ -44,7 +44,7 @@ $gallerys = DB::table('galleries')->latest()->paginate(5);
                         </figure>
                         <div class="city_blog_grid_text">
                             <span><i class="fa fa-history"></i></span>
-                            <h5><a href="{{ url('/history') }}">Surajba Park</a></h5>
+                            <h5><a href="{{ url('/gallery/details') }}">Surajba Park</a></h5>
                             <a href="{{ url('/gallery/details') }}">View<i class="fa fa-angle-double-right"></i></a>
                         </div>
                     </div>

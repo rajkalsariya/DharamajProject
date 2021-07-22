@@ -12,6 +12,7 @@ use App\Http\Controllers\frontend\ServicesController;
 use App\Http\Controllers\frontend\UserController;
 use App\Models\frontend\Categories;
 use App\Models\frontend\Jobfind;
+use App\Models\frontend\Matrimony;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -50,27 +51,27 @@ Route::get('/team', function () {
     return view('layouts.frontend.team.team');
 });
 
-Route::get('/service/classified', function(){
+Route::get('/service/classified', function () {
     return view('layouts.frontend.service.classified');
 });
 
-Route::get('/service/government', function(){
+Route::get('/service/government', function () {
     return view('layouts.frontend.service.government');
 });
 
-Route::get('service/government/details', function(){
+Route::get('service/government/details', function () {
     return view('layouts.frontend.service.governmentdetails');
 });
 
-Route::get('service/matrimony', function(){
+Route::get('service/matrimony', function () {
     return view('layouts.frontend.matrimony.matrimony');
 });
 
-Route::get('/gallery', function(){
+Route::get('/gallery', function () {
     return view('layouts.frontend.gallery.gallery');
 });
 
-Route::get('/gallery/details', function(){
+Route::get('/gallery/details', function () {
     return view('layouts.frontend.gallery.gallerydetails');
 });
 
@@ -200,6 +201,7 @@ Route::post('/updateServices/{id}', [ServicesController::class, 'updateServices'
 Route::get('service/classified/details/{id}', [ServicesController::class, 'serviceDetails']);
 
 
+
 // User Matrimony
 Route::get('/matrimony/add', [MatrimonyController::class, 'matrimony'])->name('user.matrimony');
 
@@ -209,12 +211,10 @@ Route::get('/matrimony/list', [MatrimonyController::class, 'matrimonyList'])->na
 
 Route::get('/fetchMatrimony', [MatrimonyController::class, 'fetchMatrimony']);
 
+Route::get('/service/matrimony/details/{id}', [MatrimonyController::class, 'matrionyDetails']);
+
+Route::get('/matrimony/download/bio/{id}', [MatrimonyController::class, 'downloadBIO']);
 // Categories wise Items
 Route::get('/categories/{id}', [HomeController::class, 'categoriesWise']);
 
 Route::get('/categories/{pid}/subcategories/{id}', [HomeController::class, 'subCategoriesWise']);
-
-
-
-
-

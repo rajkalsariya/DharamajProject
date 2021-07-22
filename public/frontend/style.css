@@ -394,10 +394,10 @@
 	color:#fff;
 }
 .medium_text{
-	font-size:50px;
+	font-size:46px;
 	color:#fff;
 	line-height: 40px;
-	margin-bottom:4px;
+	margin-bottom:19px;
 }
 .hidden {
   opacity:0;
@@ -413,7 +413,7 @@
 	overflow:hidden;
 }
 .banner_btn{
-	margin-bottom:50px;
+	margin-bottom:5px;
 }
 .banner_btn .theam_btn{
 	margin-right:8px;
@@ -674,6 +674,7 @@
 .city_about_text p{
 	line-height:28px;
 	margin:0px 0px;
+	text-align: justify;
 }
 .city_about_link li{
 	margin-bottom:15px;
@@ -1647,6 +1648,7 @@
 }
 .city_news_text p{
 	margin-bottom:35px;
+	text-align: justify;
 }
 .city_news_text .theam_btn{
 	border-color:#898989;
@@ -2106,6 +2108,7 @@
 .city_service2_text p{
 	margin:0px 0px;
 	padding-bottom:15px;
+	text-align: justify;
 }
 .see_more_btn{
 	display:block;
@@ -2596,7 +2599,12 @@
 }
 .city_blog_wraper{
 	padding:100px 0px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	margin-bottom: 100px;
 }
+
 .city_blog_grid{
 	padding:12px 12px 15px;
 	border:8px solid #f2f2f2;
@@ -2816,7 +2824,7 @@
 	padding:0px 0px;
 }
 .city_visit_text{
-	padding:80px 0px 80px 100px;
+	padding:80px 100px 80px 100px;
 	border:1px solid #e1e1e1;
 	border-left:none;
 }
@@ -2830,7 +2838,15 @@
 }
 .city_visit_text p{
 	margin-bottom:18px;
+	text-align: justify;
 }
+
+.text2 p{
+	margin-bottom:18px;
+	direction:rtl;
+	text-align: justify;
+}
+
 .city_visit_text p i{
 	font-style:normal;
 }
@@ -2838,7 +2854,7 @@
 	margin-bottom:34px;
 }
 .city_visit_text.text2{
-	padding:80px 100px 80px 0px;
+	padding:80px 100px 80px 100px;
 	text-align:right;
 }
 .city_visit_text .theam_btn{

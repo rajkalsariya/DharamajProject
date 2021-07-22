@@ -14,15 +14,15 @@ $jobposts = DB::table('jobposts')->latest()->limit(3)->get();
 @include('layouts.frontend.slider.slider')
 
 <!-- CITY BLOG WRAPER START-->
-<div class="city_blog_wraper">
-    <div class="container">
+<div class="city_blog_wraper" style="background-image: url('frontend/images/shape.png');">
+    <div class="container-fluid">
         <!--SECTION HEADING START-->
         <div class="section_heading margin-bottom">
-            <h2>Gam Panchayat Dharmaj</h2>
+            <h2>Dharmaj Gram Panchayat</h2>
         </div>
         <!--SECTION HEADING END-->
         <div class="row">
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-3 col-sm-6">
                 <a href="{{ url('/history') }}">
                     <div class="city_blog_grid">
                         <figure class="box" style="height: 214px;">
@@ -39,7 +39,22 @@ $jobposts = DB::table('jobposts')->latest()->limit(3)->get();
                     </div>
                 </a>
             </div>
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-3 col-sm-6">
+                <div class="city_blog_grid">
+                    <figure class="box" style="height: 214px;">
+                        <div class="box-layer layer-1"></div>
+                        <div class="box-layer layer-2"></div>
+                        <div class="box-layer layer-3"></div>
+                        <img src="{{asset('frontend/img/img/culture.jpg')}}" alt="">
+                    </figure>
+                    <div class="city_blog_grid_text">
+                        <span><i class="fa icon-partner" aria-hidden="true"></i></span>
+                        <h5><a href="#">Culture</a></h5>
+                        <a href="#">See More<i class="fa fa-angle-double-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
                 <div class="city_blog_grid">
                     <figure class="box" style="height: 214px;">
                         <div class="box-layer layer-1"></div>
@@ -54,7 +69,7 @@ $jobposts = DB::table('jobposts')->latest()->limit(3)->get();
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-3 col-sm-6">
                 <div class="city_blog_grid">
                     <figure class="box" style="height: 214px;">
                         <div class="box-layer layer-1"></div>
@@ -103,7 +118,7 @@ $jobposts = DB::table('jobposts')->latest()->limit(3)->get();
                     <!--SECTION HEADING END-->
                     <div class="city_about_text ">
                         <div class="city_service_text">
-                            <h5><a href="javascript:void(0)">Gam Pnachayat Dharmaj</a></h5>
+                            <h5><a href="javascript:void(0)">Dharmaj Gram Panchayat</a></h5>
                         </div>
                         <h6>Babubhai Dhayabhai Rohit (Sarpanch)</h6>
                         <h6>Tusharbhai Babubhai Patel (ice.Sarpanch)</h6>
@@ -145,7 +160,7 @@ $jobposts = DB::table('jobposts')->latest()->limit(3)->get();
 <!-- CITY SERVICES2 WRAP END-->
 
 <!-- CITY HEALTH2 WRAP START-->
-<div class="city_health2_wrap">
+{{-- <div class="city_health2_wrap">
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-6">
@@ -175,7 +190,7 @@ $jobposts = DB::table('jobposts')->latest()->limit(3)->get();
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- CITY HEALTH WRAP END-->
 
 <!--CITY AWARD WRAP START-->
@@ -387,7 +402,7 @@ $jobposts = DB::table('jobposts')->latest()->limit(3)->get();
         <div class="row">
             <div class="col-md-6 col-sm-6">
                 <div class="city_visit_fig">
-                    <figure class="box">
+                    <figure class="box" style="height: 442px">
                         <div class="box-layer layer-1"></div>
                         <div class="box-layer layer-2"></div>
                         <div class="box-layer layer-3"></div>
@@ -400,7 +415,7 @@ $jobposts = DB::table('jobposts')->latest()->limit(3)->get();
                     <h3>COVID 19</h3>
                     <h3>Relief Effort</h3>
                     <p><i>Proin gravida nibh vel velit auctor aliquet Aenean <br>sollicitudin, </i></p>
-                    <p>Lorem quis bibendum auctor, nisi elit consequat ipsum, nec <br>sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate<br> cursus a sit amet mauris. </p>
+                    <p>Lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. </p>
                     <a class="theam_btn border-color color" href="#" tabindex="0">Explore More</a>
                 </div>
             </div>
@@ -409,13 +424,13 @@ $jobposts = DB::table('jobposts')->latest()->limit(3)->get();
                     <h3>Your </h3>
                     <h3>Contribution</h3>
                     <p><i>Proin gravida nibh vel velit auctor aliquet Aenean <br>sollicitudin, </i></p>
-                    <p>Lorem quis bibendum auctor, nisi elit consequat ipsum, nec <br>sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate<br> cursus a sit amet mauris. </p>
+                    <p>Lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. </p>
                     <a class="theam_btn border-color color" href="#" tabindex="0">Explore More</a>
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">
                 <div class="city_visit_fig">
-                    <figure class="box">
+                    <figure class="box"  style="height: 442px">
                         <div class="box-layer layer-1"></div>
                         <div class="box-layer layer-2"></div>
                         <div class="box-layer layer-3"></div>

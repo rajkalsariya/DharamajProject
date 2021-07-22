@@ -26,7 +26,7 @@ Dharamj
         <div class="row">
             <div class="col-md-6 col-sm-6">
                 <div class="city_visit_fig">
-                    <figure class="box">
+                    <figure class="box" style="height: 458px;">
                         <div class="box-layer layer-1"></div>
                         <div class="box-layer layer-2"></div>
                         <div class="box-layer layer-3"></div>
@@ -36,29 +36,27 @@ Dharamj
             </div>
             <div class="col-md-6 col-sm-6">
                 <div class="city_visit_text">
-                    <h3>Dharmeshwar</h3>
-                    <h3>Mahadev Mandir</h3>
-                    <p><i>Proin gravida nibh vel velit auctor aliquet Aenean <br>sollicitudin, </i></p>
-                    <p>Lorem quis bibendum auctor, nisi elit consequat ipsum, nec <br>sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate<br> cursus a sit amet mauris. </p>
+                    <h3>Jalaram Mandir</h3>
+                    <p><i>Jalaram Mandir is Located in Dharmaj Village Near Borsad city Anand district on National highway no-8 to bagodra bombay highway.</i></p>
+                    <p>The temple is Built in 1978 by Shri Jalaram jan seva Trust and jalaram Satsang Mandal Dharmaj. In this time Contrasted a new Jalaram Temple.Because The highway Road is done wide and the old temple is brake and built new temple Jalaram Tirth.In 1978, the Jalaram Temple on Dharmaj-Tarapur highway was constructed. With this, a new era begain. The institution blossomed in the next 25 years to become one of the stellar examples of community welfare and development in the country. </p>
                     <a class="theam_btn border-color color" href="{{ url('/history/details') }}" tabindex="0">Explore More</a>
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">
                 <div class="city_visit_text text2">
-                    <h3>Dharmeshwar</h3>
-                    <h3>Mahadev Mandir</h3>
-                    <p><i>Proin gravida nibh vel velit auctor aliquet Aenean <br>sollicitudin, </i></p>
-                    <p>Lorem quis bibendum auctor, nisi elit consequat ipsum, nec <br>sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate<br> cursus a sit amet mauris. </p>
+                    <h3>Surajba Park</h3>
+                    <p><i>Surajba Park Dharmaj is one of the top and best destinations for family and friends in the field of park, Water Parks and resort category in Kheda. </i></p>
+                    <p>urajba Park Dharmaj placed in Gorel - Dharmaj Road, Anand District, Tehsil Petlad, Dharmaj, Gujarat 388430, and Surajba Park Dharmaj took a good position in the Park category in Kheda. If you live in Kheda or some where near to Kheda than this will be a good and easy destination for you. Surajba Park Dharmaj is a good park in the amusement_park in Kheda because a lot of people are visiting this park, people love this park, this park is always clean, people do not have any problem in coming here and spending time.</p>
                     <a class="theam_btn border-color color" href="{{ url('/history/details') }}" tabindex="0">Explore More</a>
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">
                 <div class="city_visit_fig">
-                    <figure class="box">
+                    <figure class="box"  style="height: 458px;">
                         <div class="box-layer layer-1"></div>
                         <div class="box-layer layer-2"></div>
                         <div class="box-layer layer-3"></div>
-                        <img src="{{asset('frontend/img/history/mahadev2.jpg')}}" alt="">
+                        <img src="{{asset('frontend/img/history/surajba.jpg')}}" alt="">
                     </figure>
                 </div>
             </div>
