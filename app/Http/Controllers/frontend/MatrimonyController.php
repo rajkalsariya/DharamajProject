@@ -21,30 +21,32 @@ class MatrimonyController extends Controller
     // Add User New Matrimony
     public function addMatrimony(Request $request)
     {
-        $validator = $request->validate([
-            "name" => 'required',
-            "bdt" => 'required',
-            "sex" => 'required|in:male,female',
-            "district" => 'required',
-            "state" => 'required',
-            "maritalstatus" => 'required',
-            "occupation" => 'required',
-            "photourl" => 'required|image',
-            "biourl" => 'required|mimes:jpeg,png,jpg,doc,docx,pdf',
-        ],[
-            'name.required' => 'This name field is required.',
-            'bdt.required' => 'This birthdate field is required.',
-            'sex.required' => 'This gender field is required.',
-            'district.required' => 'This district field is required.',
-            'state.required' => 'This state field is required.',
-            'maritalstatus.required' => 'This maritalstatus field is required.',
-            'occupation.required' => 'This occupation field is required.',
-            'photourl.required' => 'This photo field is required.',
-            'photourl.image' => 'This photo field is required.',
-            'biourl.required' => 'This biodata field is required.',
-            'biourl.mimes' => 'This biodata must be a file of type: jpeg, png, jpg, doc, docx, pdf.',
-        ]
-    );
+        $validator = $request->validate(
+            [
+                "name" => 'required',
+                "bdt" => 'required',
+                "sex" => 'required|in:male,female',
+                "district" => 'required',
+                "state" => 'required',
+                "maritalstatus" => 'required',
+                "occupation" => 'required',
+                "photourl" => 'required|image',
+                "biourl" => 'required|mimes:jpeg,png,jpg,doc,docx,pdf',
+            ],
+            [
+                'name.required' => 'This name field is required.',
+                'bdt.required' => 'This birthdate field is required.',
+                'sex.required' => 'This gender field is required.',
+                'district.required' => 'This district field is required.',
+                'state.required' => 'This state field is required.',
+                'maritalstatus.required' => 'This maritalstatus field is required.',
+                'occupation.required' => 'This occupation field is required.',
+                'photourl.required' => 'This photo field is required.',
+                'photourl.image' => 'This photo field is required.',
+                'biourl.required' => 'This biodata field is required.',
+                'biourl.mimes' => 'This biodata must be a file of type: jpeg, png, jpg, doc, docx, pdf.',
+            ]
+        );
 
         if ($validator) {
             $photourl = $request->file('photourl');
@@ -96,5 +98,17 @@ class MatrimonyController extends Controller
         $user = User::findOrFail($id);
         $matrimony = Matrimony::where('uid', Auth::id())->orderBy('id', 'DESC')->get();
         return response()->json($matrimony);
+    }
+
+    // frontend matrimony Details
+    public function matrionyDetails($id)
+    {
+        $matrimony = Matrimony::where('id', $id)->first();
+        return view('layouts.frontend.matrimony.matrimonydetails', compact('matrimony'));
+    }
+
+    // Download User Matrimony Bio
+    public function downloadBIO($id)
+    {
     }
 }
